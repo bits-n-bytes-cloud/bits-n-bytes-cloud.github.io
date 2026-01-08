@@ -1,0 +1,45 @@
+
+.icon-badge {
+  --badge-bg: #237BFD;
+  --badge-size: 48px;
+  --badge-radius: 12px;
+  --badge-padding: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--badge-size);
+  height: var(--badge-size);
+  background-color: var(--badge-bg);
+  border-radius: var(--badge-radius);
+  color: #ffffff;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+  /* 👉 Abstand nach unten */
+  margin-bottom: 12px;
+}
+
+/* Das eigentliche Icon größer setzen; rem skaliert gut relativ zur Basis */
+.icon-badge > .bi {
+  font-size: 1.8rem;  /* passt zu ~48px Box; bei größeren Boxen anheben */
+  line-height: 1;     /* verhindert vertikales "Springen" */
+}
+
+/* Größen-Utilities */
+.icon-badge--sm { --badge-size: 36px; --badge-padding: 8px; }
+.icon-badge--md { --badge-size: 48px; --badge-padding: 10px; } /* default */
+.icon-badge--lg { --badge-size: 64px; --badge-padding: 12px; }
+.icon-badge--xl { --badge-size: 80px; --badge-padding: 14px; }
+
+/* Form-Varianten */
+.icon-badge--rounded { --badge-radius: 12px; }   /* abgerundet (Kiste) */
+.icon-badge--pill    { --badge-radius: 9999px; } /* Kreis/Pill */
+
+/* Farb-Varianten (optional) */
+.icon-badge--blue   { --badge-bg: #237BFD; }
+.icon-badge--teal   { --badge-bg: #2CC1B6; }
+.icon-badge--gray   { --badge-bg: #6c757d; }   /* Bootstrap-ähnliches Grau */
+.icon-badge--danger { --badge-bg: #dc3545; }
+.icon-badge--success{ --badge-bg: #28a745; }
+``
