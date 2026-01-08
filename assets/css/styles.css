@@ -42,4 +42,7 @@
 .icon-badge--gray   { --badge-bg: #6c757d; }   /* Bootstrap-ähnliches Grau */
 .icon-badge--danger { --badge-bg: #dc3545; }
 .icon-badge--success{ --badge-bg: #28a745; }
-``
+
+.no-wrap {
+  white-space: nowrap;        /* Verhindert Zeilenumbruch innerhalb des Elements */
+}
