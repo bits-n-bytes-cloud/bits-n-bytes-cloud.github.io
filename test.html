@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Record anzeigen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    #content { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Eintrag</h1>
+  <div id="content">Lade…</div>
+
+  <script>
+    // == Konfiguration: bitte anpassen ==
+    const POCKETBASE_URL = 'https://pocketbase.ralfes.cloud'; // Deine PocketBase-URL
+    const COLLECTION = 'Test';                            // Name deiner Collection
+    const TEXT_FIELD = 'test';                             // Feldname mit dem Text
+
+    // == ID aus der URL lesen ==
+    const params = new URLSearchParams(window.location.search);
+    const recordId = params.get('id'); // z.B. https://url.de/test.html?id=b9chf1q2x3...
+
+    const contentEl = document.getElementById('content');
+
+    if (!recordId) {
+      contentEl.textContent = 'Fehler: Es wurde keine "id" übergeben.';
+    } else {
+      const url = `${POCKETBASE_URL}/api/collections/${encodeURIComponent(COLLECTION)}/records/${encodeURIComponent(recordId)}`;
+
+      fetch(url)
+        .then(r => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return r.json();
+        })
+        .then(data => {
+          const text = data?.[TEXT_FIELD];
+          contentEl.textContent = (text ?? '(Feld nicht gefunden)');
+        })
+        .catch(err => {
+          contentEl.textContent = `Fehler beim Laden: ${err.message}`;
+        });
+    }
+  </script>
+</body>
+</html>
