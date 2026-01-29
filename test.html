@@ -1,15 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>n8n Chat</title>
+</head>
 <body>
 
+  <!-- Dein Seiteninhalt -->
 
-<div id="n8n-chat"></div>
+  <!-- Platzhalter für den Chat -->
+  <div id="n8n-chat"></div>
 
-<script src="https://cdn.n8n.io/chat-widget/v1.0.0/index.js"></script>
-<script>
-  n8nChat.init({
-    chatUrl: "hhttps://n8n.ralfes.cloud/webhook/9c2a4e1a-6e0e-42fa-9a8f-4fbde227c911/chat",
-    title: "Chat Assistant",
-    position: "bottom-right",   // Optional
-  });
-</script>
-
+  <!-- n8n Chat-Widget laden -->
+  <script src="https://cdn.n8n.io/chat-widget/v1.0.0/index.js"></script>
+  <script>
+    n8nChat.init({
+      chatUrl: "https://n8n.ralfes.cloud/webhook/9c2a4e1a-6e0e-42fa-9a8f-4fbde227c911/chat",
+      title: "Chat Assistant",
+      position: "bottom-right" // optional
+      // weitere Optionen möglich, z. B.:
+      // subtitle: "Wie kann ich dir helfen?",
+      // primaryColor: "#0EA5E9",
+      // welcomeMessage: "Hallo! Ich bin dein n8n‑Chatbot."
+    });
+  </script>
 </body>
+</html>
