@@ -20,7 +20,7 @@
     const POCKETBASE_URL = 'https://pocketbase.ralfes.cloud'; // Deine PocketBase-URL
     const COLLECTION = 'm365';                         // Collection-Name
     // Feldnamen exakt wie in PocketBase:
-    const FIELDS = ['MCID', 'Title', 'Service', 'Datum', 'Summary', 'More_infos'];
+    const FIELDS = ['MCID', 'Title', 'Service', 'Datum', 'Summary', 'More_Infos'];
 
     const params = new URLSearchParams(window.location.search);
     const recordId = params.get('id'); // z.B. ?id=b9chf1q2x3...
@@ -35,8 +35,7 @@
           const d = new Date(val);
           if (!Number.isNaN(d.getTime())) {
             // Ausgabe: TT.MM.JJJJ HH:MM (lokal)
-            return d.toLocaleString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit',
-                                              hour: '2-digit', minute: '2-digit' });
+            return d.toLocaleString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit' });
           }
         } catch {}
       }
